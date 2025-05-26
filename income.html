@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+</head>
+<body>
+
+<form id="txn-form">
+    <input type="text" id="category" placeholder="Income or Expenses" required>
+    <input type="number" id="amount" placeholder="Enter Amount" required>
+    <input type="date" id="date" required>
+    <input type="text" id="note" placeholder="Optional note">
+    <button type="submit">Add Transaction</button>
+</form>
+
+<div id="displayOpt">
+    <input type="text" id='filt' placeholder="Filter data by category(Income or Expenses)/amount" required>
+    <button onclick="tableFilter()">Get Data</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>category</th>
+            <th>Amount</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+
+    <tbody id="txn-table">
+    </tbody>
+</table>
+    
+<script src="logic.js"></script>
+</body>
+</html>

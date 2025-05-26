@@ -1,7 +1,6 @@
 const form = document.getElementById('txn-form');
 const tableBody = document.getElementById('txn-table');
-const filterInput = document.getElementById('filt').value
-let txn = JSON.parse(localStorage.getItem('transactions')) || [];
+let txn = JSON.parse(localStorage.getItem('txn')) || [];
 
 function displayTable(data){
     tableBody.innerHTML = '';
@@ -12,7 +11,7 @@ function displayTable(data){
         <td>${item.amount}</td>
         <td>${item.note || ''}</td>
         </tr>`;
-         tableBody.innerHTML += row;
+         tableBody.innerHTML = row;
     });
 }
 
@@ -37,6 +36,9 @@ form.addEventListener('submit', (e)=>{
 //Display conditions
 
 function tableFilter(){
+    let filterInput = document.getElementById("filt").value;
+    console.log(txn)
+
     if(filterInput && filterInput == 'Income'){
         const incomeData = txn.filter(x => x.category == 'Income')
         displayTable(incomeData)
@@ -47,7 +49,7 @@ function tableFilter(){
         return;
     }else if(filterInput){
        const parseTodigit =  Number(filterInput);
-       const amtData = txn.filter(x => x.category == parseTodigit)
+       const amtData = txn.filter(x => x.amount == parseTodigit)
        displayTable(amtData)
        return;
     }else{
@@ -57,7 +59,6 @@ function tableFilter(){
 }
 
 
-console.log(filterInput)
 
 
 

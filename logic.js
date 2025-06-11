@@ -37,7 +37,6 @@ form.addEventListener('submit', (e)=>{
 
 function tableFilter(){
     let filterInput = document.getElementById("filt").value;
-    console.log(txn)
 
     if(filterInput && filterInput == 'Income'){
         const incomeData = txn.filter(x => x.category == 'Income')
@@ -53,7 +52,8 @@ function tableFilter(){
        displayTable(amtData)
        return;
     }else{
-        return;
+    const msg = document.getElementById('err').innerHTML = `Please enter Income / Expenses or an amount in number`
+      return;
     }
 
 }
